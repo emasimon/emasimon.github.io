@@ -302,7 +302,7 @@ class: middle
 Teorem o prostim brojevima objašnjava asimptotsko distribuciju prostih brojeva, među prirodnim brojevima.
 On formalizira intuitivnu predođbu o tome da su prosti brojevi sve rijeđi kada postaju veći.
 
-Tvrdnja teorema je da se funkcija $\pi (x) može aproksimirati na sljedeći način:
+Tvrdnja teorema je da se funkcija $\pi(x)$ može aproksimirati na sljedeći način:
 $\pi (x) \approx \frac{x}{\ln x} $
 odnosno
 $\lim_{x \to \infty} \frac{\pi (x) }{\frac{x}{\ln x}} = 1$
@@ -314,10 +314,12 @@ $\lim_{x \to \infty} \frac{\pi (x) }{\frac{x}{\ln x}} = 1$
 <div class="compute"><script type="text/x-sage">
 @interact
 def _(N=(100,(2..2000))):
-    html("<font color='red'>$\pi(x)$</font> i <font color='blue'>$x/\log(x)$</font> za $x < %s$"%N)
-    show(plot(prime_pi, 0, N, rgbcolor='red') + plot(x/(log(x)), 5, N, rgbcolor='blue'))
+    html("<font color='red'>$\pi(x)$</font> i <font color='blue'>$x/\(log(x)-1)$</font> za $x < %s$"%N)
+    show(plot(prime_pi, 0, N, rgbcolor='red') + plot(x/(log(x)-1), 5, N, rgbcolor='blue'))
 </script>
 </div>
+
+Posljedica PNT-a je da se n-ti prosti broj može procijeniti kao: $p(n) \sim n * \ln (n)$
 
 ---
 
