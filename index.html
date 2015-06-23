@@ -151,6 +151,8 @@ Broj $b$ je <b>mjera</b> (djelitelj) broja $a$, koji je <b>višekratnik</b> (mul
 
 Prirodni broj veći od 1 djeljiv jedino samim sobom i brojem 1 je <b>prosti broj</b>. Prirodni brojevi veći od 1 koji nisu prosti se nazivaju <b>složeni brojevi</b>.
 
+Broj 0 nije ni prost ni složen broj.
+
 ---
 
 #Primjeri
@@ -159,12 +161,36 @@ Prvih $n$ prostih brojeva
 
 <div class="compute"><script type="text/x-sage">
 @interact
-def prosti_brojevi(n=('Unesite $n$',5)):
+def _(n=('Unesite $n$',5)):
   print( primes_first_n(n))
 </script>
 </div>
 
+Je li broj $n$ prosti broj?
+
+<div class="compute"><script type="text/x-sage">
+@interact
+def _(n=('Unesite $n$',5)):
+  print( is_prime(n))
+</script>
+</div>
+
 ---
+
+# Relativno prosti brojevi
+
+Brojevi $a$ i $b$ su <b>relativno prosti</b> ako je najveći zajednički djelitelj brojeva $a$ i $b$ jednak $1$, tj. brojevi $a$ i $b$ nemaju zajedničkih faktora ili im je najveći zajednički djelitelj jednak 1.
+
+<div class="compute"><script type="text/x-sage">
+@interact
+def _(a=('Unesite $a$',75),b=('Unesite $b$',23)):
+  if gcd(a,b)==1: print('Brojevi ' a ' i ' b ' su relativno prosti.')
+  if gdc(a,b)!=1: print('Brojevi ' a ' i ' b ' nisu relativno prosti.')
+</script>
+</div>
+
+---
+
 
 name: inverse
 layout: true
