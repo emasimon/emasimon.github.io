@@ -1,4 +1,3 @@
-
 <html lang="hr">
   <head>
     <meta charset="utf-8" />
@@ -284,7 +283,7 @@ def f(x):
   return pari(x).primepi()
 
 g = plot(f,(2,200))
-print('Graf funkcije $\pi (x)$')
+print('Graf funkcije r $\pi (x)$')
 g.ymax(50)
 g.ymin(0)
 g.xmin(0)
@@ -296,21 +295,20 @@ g
 
 ---
 
+layout: false
+class: middle
+#Prime Number Theorem 
 
-# Selekcija preko dugmadi
+Teorem o prostim brojevima objašnjava asimptotsko distribuciju prostih brojeva, među prirodnim brojevima.
+On formalizira intuitivnu predođbu o tome da su prosti brojevi sve rijeđi kada postaju veći.
 
-<div class="compute"><script type="text/x-sage">
-var('x,y')
-colormaps=sage.plot.colors.colormaps.keys()
-@interact
-def _(cmap=selector(['RdBu', 'jet', 'gray','gray_r'],buttons=True),
-type=['density','contour']):
-  if type=='contour':
-    contour_plot(x^2-y^2,(x,-2,2),(y,-2,2),cmap=cmap, aspect_ratio=1).show()
-  else:
-    density_plot(x^2-y^2,(x,-2,2),(y,-2,2),cmap=cmap, frame=True,axes=False,aspect_ratio=1).show() 
-</script></div>
+Tvrdnja teorema je da se funkcija $\pi (x) može aproksimirati na sljedeći način:
+$\pi (x) \pprox \frac{x}{\ln x} $
+odnosno
+$\lim_{x \to \infty} \frac {\pi(x)}{ \frac{x}{\ln x}} = 1$
+
 ---
+
 
 # latex() i html()
 
