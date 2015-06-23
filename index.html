@@ -314,7 +314,7 @@ $\lim_{x \to \infty} \frac{\pi (x) }{\frac{x}{\ln x}} = 1$
 <div class="compute"><script type="text/x-sage">
 @interact
 def _(N=(100,(2..2000))):
-    html("<font color='red'>$\pi(x)$</font> i <font color='blue'>$x/\(log(x)-1)$</font> za $x < %s$"%N)
+    html("<font color='red'>$\pi(x)$</font> and <font color='blue'>$x/(\log(x)-1)$</font> for $x < %s$"%N)
     show(plot(prime_pi, 0, N, rgbcolor='red') + plot(x/(log(x)-1), 5, N, rgbcolor='blue'))
 </script>
 </div>
@@ -323,88 +323,14 @@ Posljedica PNT-a je da se n-ti prosti broj može procijeniti kao: $p(n) \sim n *
 
 ---
 
-
-# latex() i html()
-
-U zadnjem primjeru korištena je funkcija `html()` koja omogućava ispisivanje HTML koda, a koji može uključivati $\LaTeX$ budući da koristi mathjax. Funkcija `html` ima istu sintaksu kao i funkcija `print`, što omogućava formatiranje ispisa.
-
-Analogna funkcija je `latex()` koja omogućava ispis $\LaTeX$ koda bilo kojeg Sage objekta.
-<div class="compute"><script type="text/x-sage">
-var('z')
-latex(integrate(z^4, z))
-</script></div>
----
-
-# Primjer korištenja funkcija html() i latex()
-
-<div class="compute"><script type="text/x-sage">
-@interact
-def _(funkcija = input_box(x^2, width=20)):
-    f_deriv = funkcija.diff(x)
-    html("f(x)="+latex(funkcija)+
-    ", \mathrm{a}\; f^{\prime}(x)= "+latex(f_deriv))
-</script></div>
----
-
-#Primjeri
-
-Jako puno primjera možete naći na sljedećoj web stranici: http://wiki.sagemath.org/interact/.
-
----
-name: inverse
-layout: true
-class: center, middle, inverse
----
-
-![](https://sagecell.sagemath.org/static/sagemathcell-logo.png?v=cee2c58e80f2ffd0968d7a8266fac283
-)
-
-[SageMathCell](http://sagecell.sagemath.org/) je web sučelje za Sage, koje omogućuje interaktivno uključivanje Sage koda na web stranice. 
-
----
 layout: false
 class: middle
+#Dirichletov teorem
 
-# Zaglavlje html-a
 
-```html
-    <script src=
-    "https://sagecell.sagemath.org/static/jquery.min.js">
-    </script>
-    <script src=
-    "https://sagecell.sagemath.org/static/embedded_sagecell.js">
-    </script>
-    <script>$(function () {
-    sagecell.makeSagecell({
-      inputLocation: 'div.compute', 
-      evalButtonText: 'Izračunaj'
-    });
-    });
-    </script>
-    <link rel="stylesheet" type="text/css" href=
-    "https://sagecell.sagemath.org/static/sagecell_embed.css">
-```    
-Ako ne želimo dozvoliti mijenjanje koda možemo koristiti opciju 
-`template: sagecell.templates.restricted`.
 
 ---
 
-# Primjer korištenja 
-
-<div class="compute"><script type="text/x-sage">
-1+1
- </script>
-</div>
-Kod:
-
-```html
-<div class="compute"><script type="text/x-sage">
-1+1
- </script>
-</div>
-```
-
-Za više detalja pogledati izvorni kod ove web stranice te [dokumentaciju](https://github.com/sagemath/sagecell/blob/master/doc/embedding.rst).
 
 </textarea>
 
