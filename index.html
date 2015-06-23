@@ -144,7 +144,7 @@ class: center, middle, inverse
 ---
 layout: false
 class: middle
-# Definicija
+# Definicija prostih brojeva
 
 Za prirodni broj $a$ kažemo da je <b>djeljiv</b> sa prirodnim brojem $b$ ( pišemo $b | a$) ako postoji prirodni broj $c$ takav da je $a = bc$. 
 Broj $b$ je <b>mjera</b> (djelitelj) broja $a$, koji je <b>višekratnik</b> (multiplum) broja $b$.
@@ -190,7 +190,8 @@ def _(a=('Unesite $a$',75),b=('Unesite $b$',23)):
 </div>
 
 ---
-
+layout: false
+class: middle
 # Teorem 1
 
 <i>Svaki prirodni broj je djeljiv sa bar jednim prostim brojem.</i>
@@ -216,8 +217,28 @@ Ovaj postupak provodimo dok ne dođemo do oblika $n=p_1 p_2 \ldots p_m$; naime p
 
 <div class="compute"><script type="text/x-sage">
 @interact
-def _(n=('Unesite broj $n$ koji želimo napisati kao produkt prostih brojeva',36):
+def _(n=('Unesite broj $n$ koji želimo napisati kao produkt prostih brojeva',36)):
   print factor(n)
+</script>
+</div>
+
+---
+
+layout: false
+class: middle
+
+# Teorem 3
+
+<i>Postoji beskonačno mnogo prostih brojeva.</i>
+
+<b>Dokaz</b>
+Pretpostavimo suprotno; neka postoji točno $n$ prostih brojeva.
+Neka je $p_n$ najveći prosti broj i promatrajmo broj $2*3*5*7*\dots*p_n + 1$. On je veći od svakog prostog broja pa stoga nije prosti broj.
+S druge strane, on nije djeljivi niti sa jednim prostim brojem (uvijek dobivamo ostatak $1$ pri djeljenju). Stoga on mora biti prosti broj pa dolazimo do kontradikcije.
+
+<div class="compute"><script type="text/x-sage">
+P = Primes(); P
+P.cardinality()
 </script>
 </div>
 
