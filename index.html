@@ -280,7 +280,10 @@ $\pi (x) = \text{card} \{ p \in P | p \gt x\}, \pi : [0,\infty> \to \mathbb{N} $
 
 
 <div class="compute"><script type="text/x-sage">
-plot(pari(x).primepi(),(2,100))
+def f(x):
+  pari(x).primepi()
+  
+plot(f,(2,100))
 </script>
 </div>
 
