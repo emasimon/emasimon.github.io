@@ -2,15 +2,13 @@
 <html lang="hr">
   <head>
     <meta charset="utf-8" />
-    <title>Sage na webu</title>
+    <title>Prosti brojevi</title>
     <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
     <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
     <script>$(function () {
     sagecell.makeSagecell({
       editor: "codemirror-readonly",
       inputLocation: 'div.compute', 
-//      template: sagecell.templates.restricted,  //ako želimo zabraniti mijenjanje koda
-//      template: sagecell.templates.minimal,  //ako ne želimo da se vidi kod
       hide: ["editorToggle", "permalinks"], //
       evalButtonText: 'Izračunaj'
     });
@@ -141,19 +139,15 @@ class: center, middle, inverse
 
 ---
 
-# Crtanje u Sageu
-
-Crtanje u Sageu se oslanja na Matplotlib, ali je malo pojednostavljeno (no ima i manje opcija). No ako nam nešto zatreba uvijek možemo koristiti Matplotlib funkcije.
+# Prosti brojevi
 
 ---
 layout: false
 class: middle
-# Jednostavni grafovi
+# Definicija
 
-<div class="compute"><script type="text/x-sage">
-plot(sin, (-2*pi, 2*pi))
- </script>
-</div>
+Za prirodni broj $a$ kažemo da je <b>djeljiv</b> sa prirodnim brojem $b$ ( pišemo $b \langle a$) ako postoji prirodni broj $c$ takav da je $a = bc$. 
+Broj $b$ je <b>mjera</b> (djelitelj) broja $a$, koji je <b>višekratnik</b> (multiplum) broja $b$.
 ---
 
 # Jednostavni grafovi s dodatnim opcijama
