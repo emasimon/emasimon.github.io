@@ -277,7 +277,7 @@ class: middle
 
 Sa $\pi (x)$ ćemo označavati broj prostih brojeva $p$ koji si manji od $x$, tj. $p \gt x, x \in [2, \infty>$
 
-$\pi (x) = \text{card} \{ p \in P | p \gt x \}, \pi : [0,\infty> \to \mathbb{N} $
+$\pi (x) = \text{card} \\{ p \in P | p \gt x \\}, \pi : [0,\infty> \to \mathbb{N} $
 
 
 <div class="compute"><script type="text/x-sage">
@@ -449,8 +449,43 @@ print CRT([3,8,5],[10,15,84]), '(mod ',10*84*15,')'
 </script>
 </div>
 
-</textarea>
+---
 
+layout: false
+class: middle
+#Mersenneovi brojevi
+
+<b>Mersenneovi brojevi</b> su brojevi oblika $M_n=2^n -1$.
+Ako je $n$ složen broj, tada je i $M_n$ složen broj.
+<b>Mersenneovi prosti brojevi</b> su prosti brojevi oblika $M_n=2^n -1$, ali je dovoljno gledati brojeve oblika $M_p=2^p-1$, gdje je $p$ prosti broj.
+
+Do sada je poznato samo 48 Mersenneovih brojeva, a najveći je <b>$2^{57,885,161}-1$</b>, što je i najveći poznati prosti broj.
+
+---
+
+layout: false
+class: middle
+#Lucas–Lehmerov test za Mersenneove proste brojeve
+
+Neka je $M_p=2^p-1$ Mersenneov broj za koji želimo testirati je li prosti broj, gdje je $p$ neparni prosti broj.
+Definiramo niz $ \\{ s_i \\} za sve $i \ge 0$
+
+\begin{equation}
+s_i =
+\begin{cases}
+4, \text{ako} i=0 \\
+{s_{i-1}}^2 - 2, \text{inače}
+\end{cases}
+\end{equation}
+
+Nekoliko prvih elemenata niza su $ 4, 14, 194, 37634, \dots $
+
+Tada je $M_p$ prost broj ako i samo ako $s_{p-2} \equiv O\pmod {M_p}$
+
+---
+
+
+</textarea>
 
 
 <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript"></script>
