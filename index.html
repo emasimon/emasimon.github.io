@@ -213,21 +213,14 @@ Svaki prosti broj je djeljiv sam sa sobom.
 <b>Dokaz</b>
 Neka je $p_1$ najmanji prosti djelitelj složenog broja $n$. Ako označimo $q_1=n | p_1$, tada imamo $n=p_1 q_1$.
 Ako je $q_1$ složen broj, tada postoji njegov najmanji prosti djelitelj $p_2$ i vrijedi $n=p_1 p_2 q_2$, gdje je $q_2=q_1 | p_2$.
-Ovaj postupak provodimo dok ne dođemo do oblika $n=p_1 p_2 \ldots p_m$; naime pošto je $n>q_1>q_2> \dots$, u jednom trenutku ćemo doći do $q_k$ koji je prosti broj.
-
-<div class="compute"><script type="text/x-sage">
-@interact
-def _(n=('Unesite broj $n$ koji želimo napisati kao produkt prostih brojeva',36)):
-  print factor(n)
-</script>
-</div>
+Ovaj postupak provodimo dok ne dođemo do oblika $n=p_1 p_2 \cdots p_m$; naime pošto je $n>q_1>q_2> \dots$, u jednom trenutku ćemo doći do $q_k$ koji je prosti broj.
 
 ---
 
 layout: false
 class: middle
 
-# Teorem 3
+# Euklidov teorem
 
 <i>Postoji beskonačno mnogo prostih brojeva.</i>
 
@@ -242,164 +235,57 @@ P.cardinality()
 </script>
 </div>
 
-name: inverse
-layout: true
-class: center, middle, inverse
 ---
 
-# Sage @interact
-
-`@interact` je dekorator koji omogućuje jednostavno kreiranje interaktivnih komponenti, dosta sličan s analognom funkcijom `interact` u Jupyter bilježnicama.
-
-`@interact` funkcionira i kada koristimo Sage na web stranicama.
-
----
 layout: false
 class: middle
 
-# Jednostavni primjeri
+# Osnovni teorem aritmetike
 
-<div class="compute">
-<script type="text/x-sage">
+<i>Faktorizacija svakog prirodnog broja $n > 1$ na proste faktore je jedinstvena do na poredak prostih faktora.</i>
+
+Faktorizacija prirodnog broja $n>1$
+<div class="compute"><script type="text/x-sage">
 @interact
-def _(a=(1..10)):
-    print factorial(a)
+def _(n=('Unesite broj $n$',36)):
+  print factor(n)
 </script>
 </div>
 
-<div class="compute">
-<script type="text/x-sage">
-@interact
-def f(x=(1,10)):
-    print 2^x
+---
+
+layout: false
+class: middle
+# Eratostenovo sito
+
+<b>Eratostenovo sito</b> je algoritam za dobivanje svih prostih brojeva koji su manji od zadanog broja $n$.
+
+Postupak:
+1.napišemo sve brojeve od $2$ do odabranog broja $n$
+2.zaokružimo najmanji neoznačeni broj
+2.precrtamo sve njegove višekratnike, koji nisu već označeni
+4.ponavljamo postupak od 2. koraka dok svi brojevi nisu označeni (zaokruženi ili precrtani)
+
+Zaokruženi brojevi su prosti brojevi, a precrtani brojevi su složeni brojevi.
+
+---
+
+layout: false
+class: middle
+# Definicija funkcije $\pi (x)$
+
+Sa $\pi (x)$ ćemo označavati broj prostih brojeva $p$ koji si manji od $x$, tj. $p \gt x, x \in [2, \infty>$
+
+$\pi (x) = \text{card} \{ p \in P | p \gt x\}, \pi : [0,\infty> \to \mathbb{N} $
+
+
+<div class="compute"><script type="text/x-sage">
+plot(pari(x).primepi(),(2,100))
 </script>
 </div>
-Kako ime funkcije nije važno često se označava s donjom crtom, ali to je samo konvencija.
-
-Dokumentacija za korištenje dekoratora @interact se nalazi [ovdje](https://github.com/sagemath/sagecell/blob/master/doc/interact_protocol.rst).
 
 ---
 
-# Kompliciraniji primjer
-<div class="compute">
-<script type="text/x-sage">
-var('x')
-x0  = 0
-f   = sin(x)*e^(-x)
-p   = plot(f,-1,5, thickness=2)
-dot = point((x0,f(x=x0)),pointsize=80,rgbcolor=(1,0,0))
-@interact
-def _(order=(1..12)):
-  ft = f.taylor(x,x0,order)
-  pt = plot(ft,-1, 5, color='green', thickness=2)
-  html('$f(x)\;=\;%s$'%latex(f))
-  html('$\hat{f}(x;%s)\;=\;%s+\mathcal{O}(x^{%s})$'%(x0,latex(ft),order+1))
-  show(dot + p + pt, ymin = -.5, ymax = 1)
-</script>
-</div>
----
-
-# Sintaksa
-
-`a=(1..10)` je kratica za 
-
-```
-a = slider(vmin = 0, vmax = 10, step_size = 1, default = 1)
-```
-
-dok je `x=(1,10)` također kratica za `slider` ali s finijim korakom (raspon je podijeljen na 500 koraka).
-
-Slider ne mora primati brojeve:
-<div class="compute"><script type="text/x-sage">
-@interact
-def _(fun=('function', slider([sin,cos,tan,sec,csc,cot]))):
-    print fun(4.39293) 
-</script></div>
----
-
-# input_box
-
-Osim slidera, postoji cijeli niz drugih objekata, a svaka imenovana varijabla funkcije će postati interaktiva. Ako ne definiramo način interaktvnosti (kao npr. slider) bit će stvorena polja za tekstualno mijenjanje varijabli (`input_box`).
-
-<div class="compute"><script type="text/x-sage">
-@interact
-def g(f=x^2,a=-3,b=3):
-  show(plot(f,(x,a,b)))
- </script></div> 
----
-
-# Sintaksa
-
-Kozmetičke izmjene prethodnog primjera
-
-<div class="compute"><script type="text/x-sage">
-@interact
-def _(f=('$f$',x^2),a=('donja granica',-3),
-b=('gornja granica',3)):
-  show(plot(f,(x,a,b))) 
-</script></div>
-
-Slično, ali uz eksplicitno navođenje tipa upravljanja
-<div class="compute"><script type="text/x-sage">
-@interact
-def _(f=('$f$',input_box(x^2))):
-  show(plot(f,(x,-3,3)))
-</script></div>
----
-
-# Biranje boje
-
-<div class="compute"><script type="text/x-sage">
-@interact
-def _(f=input_box(x^2,width=20), 
-color=color_selector(widget='colorpicker', 
-default='red')):
-  show(plot(f,(x,-3,3), color=color))
-</script></div>
-**Važno**: ne radi zajedno s remark.js prezentacijama. OK na običnim web strancama.
----
-
-# Range_slider, checkboxes 
-
-<div class="compute"><script type="text/x-sage">
-@interact
-def _(f=input_box(x^2,width=20), 
-axes=True,
-fill=True,
-zoom=range_slider(-3,3,default=(-3,3))):
-  show(plot(f,(x,zoom[0], zoom[1]), 
-  axes=axes,fill=fill)) 
-</script></div>
-Checkbox možemo kreirati i eksplicitno, npr.
-```
-fill=checkbox(True, label='Ispuniti')
-```
-
----
-
-# Mijenjanje izgleda
-<div class="compute"><script type="text/x-sage">
-@interact(layout=dict(top=[['f', 'axes']], 
-left=[['fill']], 
-bottom=[['zoom']]))
-def _(f=input_box(x^2,width=20), 
-axes=True,
-fill=True,
-zoom=range_slider(-3,3, default=(-3,3))):
-  show(plot(f,(x,zoom[0], zoom[1]), axes=axes,fill=fill)) 
-</script></div>
----
-
-# Selector
-
-<div class="compute"><script type="text/x-sage">
-var('x,y')
-colormaps=sage.plot.colors.colormaps.keys()
-@interact
-def _(cmap=selector(colormaps)):
-  contour_plot(x^2-y^2,(x,-2,2),(y,-2,2),cmap=cmap).show()
-</script></div>
----
 
 # Selekcija preko dugmadi
 
