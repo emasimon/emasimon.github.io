@@ -280,7 +280,10 @@ $\pi (x) = \text{card} \{ p \in P | p \gt x\}, \pi : [0,\infty> \to \mathbb{N} $
 
 
 <div class="compute"><script type="text/x-sage">
-g = plot(prime_pi,(2,50))
+def f(x):
+  return pari(x).primepi()
+
+g = plot(f,(2,50))
 g.ymax(50)
 g.ymin(0)
 g.xmin(2)
