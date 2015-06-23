@@ -185,12 +185,41 @@ Brojevi $a$ i $b$ su <b>relativno prosti</b> ako je najveći zajednički djelite
 @interact
 def _(a=('Unesite $a$',75),b=('Unesite $b$',23)):
   if gcd(a,b)==1: print 'Brojevi ',a,' i ',b,' su relativno prosti.'
-  if gdc(a,b)!=1: print 'Brojevi ',a,' i ',b,' nisu relativno prosti.'
+  if gcd(a,b)!=1: print 'Brojevi ',a,' i ',b,' nisu relativno prosti.'
 </script>
 </div>
 
 ---
 
+# Teorem 1
+
+<i>Svaki prirodni broj je djeljiv sa bar jednim prostim brojem.</i>
+
+<b>Dokaz</b>
+Neka je $n$ prirodan broj. Ako je $n$ prost broj, tada je djeljiv sa samim sobom i tvrdnja slijedi.
+Ako je $n$ složen broj, tada pmeđu njegovim djeliteljima postoji najmanji djelitelj, označimo ga sa $p$.
+Kada bi $p$ bio složen broj, tada bi njegov djelitelj bio jedan od faktora broja $n$ i to bi bio djelitelj koji je manji od njegovog najmanjeg djelitelja $p$, što je kontradikcija.
+Stoga je $p$ prosti broj.
+
+Svaki prosti broj je djeljiv sam sa sobom.
+
+---
+
+# Teorem 2
+
+<i>Svaki složen broj možemo napisati kao produkt prostih brojeva.</i>
+
+<b>Dokaz</b>
+Neka je $p_1$ najmanji prosti djelitelj složenog broja $n$. Ako označimo $q_1=n | p_1$, tada imamo $n=p_1 q_1$.
+Ako je $q_1$ složen broj, tada postoji njegov najmanji prosti djelitelj $p_2$ i vrijedi $n=p_1 p_2 q_2$, gdje je $q_2=q_1 | p_2$.
+Ovaj postupak provodimo dok ne dođemo do oblika $n=p_1 p_2 \ldots p_m$; naime pošto je $n>q_1>q_2> \dots$, u jednom trenutku ćemo doći do $q_k$ koji je prosti broj.
+
+<div class="compute"><script type="text/x-sage">
+@interact
+def _(n=('Unesite broj $n$ koji želimo napisati kao produkt prostih brojeva',36):
+  print factor(n)
+</script>
+</div>
 
 name: inverse
 layout: true
