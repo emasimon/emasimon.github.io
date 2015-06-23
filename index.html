@@ -205,6 +205,8 @@ Svaki prosti broj je djeljiv sam sa sobom.
 
 ---
 
+layout: false
+class: middle
 # Teorem 2
 
 <i>Svaki složen broj možemo napisati kao produkt prostih brojeva.</i>
@@ -260,10 +262,10 @@ class: middle
 <b>Eratostenovo sito</b> je algoritam za dobivanje svih prostih brojeva koji su manji od zadanog broja $n$.
 
 Postupak:
-1.napišemo sve brojeve od $2$ do odabranog broja $n$
-2.zaokružimo najmanji neoznačeni broj
-2.precrtamo sve njegove višekratnike, koji nisu već označeni
-4.ponavljamo postupak od 2. koraka dok svi brojevi nisu označeni (zaokruženi ili precrtani)
+-1.napišemo sve brojeve od $2$ do odabranog broja $n$
+-2.zaokružimo najmanji neoznačeni broj
+-3.precrtamo sve njegove višekratnike, koji nisu već označeni
+-4.ponavljamo postupak od 2. koraka dok svi brojevi nisu označeni (zaokruženi ili precrtani)
 
 Zaokruženi brojevi su prosti brojevi, a precrtani brojevi su složeni brojevi.
 
@@ -327,7 +329,7 @@ layout: false
 class: middle
 #Dirichletov teorem
 
-<i>Neka su $d$ i $a$ prirodni brojevi takvi da je njihova mjera $(d, a) = 1$, tj. oni su relativno prosti. Tada postoji beskonačno mnogo prostih brojeva oblika $ d n + a, n \in \mathbb{N_0}$,
+<i>Neka su $d$ i $a$ prirodni brojevi takvi da je njihova mjera $ (d , a) = 1 $, tj. oni su relativno prosti. Tada postoji beskonačno mnogo prostih brojeva oblika $ d n + a, n \in \mathbb{N_0}$,
 tj. postoji beskonačno mnogo prostih brojeva u aritmetičkom nizu $a, d + a, 2 d + a, 3 d + a, \dots $ </i>
 Drugim riječima, postoji beskonačno mnogo prostih brojeva koji su kongruentni $a$ modulo $d$.
 
@@ -339,9 +341,11 @@ divergira.
 
 #Ulamova spirala
 
-Ulamova spirala je grafički prikaz prostih brojeva koji pokazuje da su prosti brojevi gusti u nekim područjima prirodnih brojeva.
+Ulamova spirala (prime spiral) je grafički prikaz prostih brojeva koji pokazuje da su prosti brojevi gusti u nekim područjima prirodnih brojeva.
 Dobiva se crtanjem pravokutne spirale prirodnih brojeva, krećući sa 1 iz sredine te do proizvoljnog broja $n$. Nakon što se ispišu svi brojevi, brišu se svi složeni brojevi.
 Preostali prosti brojevi, za veće $n$, daju zanimljive oblike.
+
+Ovo je primjer Ulamove spirale u polarnim koordinatama
 
 <div class="compute"><script type="text/x-sage">
 @interact
@@ -412,6 +416,20 @@ def polar_prime_spiral(start=1, end=2000, show_factors = false, highlight_primes
 </div>
 
 ---
+
+layout: false
+class: middle
+# Kineski teorem o ostacima
+
+Ako cijeli broj $m \neq 0$  dijeli razliku $a−b$, onda kažemo da je $a$ kongruentan $b$ modulo $m$ i pišemo $a\equiv b\pmod m$.
+U protivnom,  kažemo da $a$ nije kongruentan $b$ modulo $m$ i pišemo $ a \not\equiv b\pmod m$.
+
+<i>Neka su $m_1, m_2, \dots , m_r$ u parovima relativno prosti prirodni brojevi, te neka su $a_1, a_2, \dots , a_r$ cijeli brojevi.
+Tada sustav kongruencija
+$x\equiv a_1\pmod m_1 , x\equiv a_2\pmod m_2, \dots , x\equiv a_r\pmod m_r$
+ima rješenja. 
+Ako je $x_0$ jedno rješenje, onda su sva rješenja sustava dana sa $x\equiv x_0\pmod (m_1 m_2 \cdots m_r)$ </i>
+
 
 </textarea>
 
