@@ -194,7 +194,7 @@ layout: false
 class: middle
 # Teorem 1
 
-<i>Svaki prirodni broj je djeljiv sa bar jednim prostim brojem.</i>
+<i>Svaki prirodni broj je djeljiv sa barem jednim prostim brojem.</i>
 
 <b>Dokaz</b>
 Neka je $n$ prirodan broj. Ako je $n$ prost broj, tada je djeljiv sa samim sobom i tvrdnja slijedi.
@@ -233,11 +233,11 @@ class: middle
 
 <b>Dokaz</b>
 Pretpostavimo suprotno; neka postoji točno $n$ prostih brojeva.
-Neka je $p_n$ najveći prosti broj i promatrajmo broj $2*3*5*7*\dots*p_n + 1$. On je veći od svakog prostog broja pa stoga nije prosti broj.
+Neka je $p_n$ najveći prosti broj i promatrajmo broj $2 \cdot 3 \cdot 5 \cdot 7 \cdots \cdot p_n + 1$. On je veći od svakog prostog broja pa stoga nije prosti broj.
 S druge strane, on nije djeljivi niti sa jednim prostim brojem (uvijek dobivamo ostatak $1$ pri djeljenju). Stoga on mora biti prosti broj pa dolazimo do kontradikcije.
 
 <div class="compute"><script type="text/x-sage">
-P = Primes(); P
+P = Primes()
 P.cardinality()
 </script>
 </div>
