@@ -283,11 +283,13 @@ $\pi (x) = \text{card} \{ p \in P | p \gt x\}, \pi : [0,\infty> \to \mathbb{N} $
 def f(x):
   return pari(x).primepi()
 
-g = plot(f,(2,50))
+g = plot(f,(2,200))
+print('Graf funkcije $\pi (x)$')
 g.ymax(50)
 g.ymin(0)
 g.xmin(2)
 g.xmax(50)
+g.axes_labels([r'$x$',r'$\pi (x)$'])
 g
 </script>
 </div>
