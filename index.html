@@ -262,10 +262,12 @@ class: middle
 <b>Eratostenovo sito</b> je algoritam za dobivanje svih prostih brojeva koji su manji od zadanog broja $n$.
 
 Postupak:
--1.napišemo sve brojeve od $2$ do odabranog broja $n$
--2.zaokružimo najmanji neoznačeni broj
--3.precrtamo sve njegove višekratnike, koji nisu već označeni
--4.ponavljamo postupak od 2. koraka dok svi brojevi nisu označeni (zaokruženi ili precrtani)
+<ol>
+napišemo sve brojeve od $2$ do odabranog broja $n$
+zaokružimo najmanji neoznačeni broj
+precrtamo sve njegove višekratnike, koji nisu već označeni
+ponavljamo postupak od 2. koraka dok svi brojevi nisu označeni (zaokruženi ili precrtani)
+</ol>
 
 Zaokruženi brojevi su prosti brojevi, a precrtani brojevi su složeni brojevi.
 
@@ -468,8 +470,8 @@ class: middle
 #Lucas–Lehmerov test za Mersenneove proste brojeve
 
 Neka je $ M_p = 2^p -1 $  Mersenneov broj za koji želimo testirati je li prosti broj, gdje je $ p $ neparni prosti broj.
-Definiramo niz $ ( s_i ) $ za sve $ i \ge 0 $.
-Vrijedi: $ s_0 = 4 $
+Definiramo niz $ ( s_i ) $ za sve $ i \ge 0 $ sa:
+$ s_0 = 4 $ , a inače $ s_i=s_{i-1}^2-2 $
 
 Funkcija koja za dani $p$ provjerava je li $2^p-1$ Mersenneov prost broj
 <div class="compute"><script type="text/x-sage">
