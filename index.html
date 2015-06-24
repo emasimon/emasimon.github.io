@@ -476,13 +476,13 @@ Nekoliko prvih elemenata niza su $ 4, 14, 194, 37634, \dots $
 Tada je $M_p$ prost broj ako i samo ako $s_{p-2} \equiv 0 \pmod {M_p}$
 
 <div class="compute"><script type="text/x-sage">
-def is_prime_lucas_lehmer(p):
+@interact
+def is_prime_lucas_lehmer(p=('Unesite prost broj $p$',5)):
   s = Mod(4, 2^p - 1)
   for i in range(3, p+1): s = s^2 - 2
-  return s == 0
-
-print is_prime_lucas_lehmer(5)
-
+  if s == 0 : print('$M_p$ je prost broj')
+    else: print('$M_p$ nije prost broj')
+  return ;
 </script>
 </div>
 
