@@ -469,15 +469,16 @@ class: middle
 
 Neka je $ M_p = 2^p -1 $  Mersenneov broj za koji želimo testirati je li prosti broj, gdje je $ p $ neparni prosti broj.
 Definiramo niz $ ( s_i ) $ za sve $ i \ge 0 $.
+Vrijedi: $ s_0 = 4 $
 
-
+Funkcija koja za dani $p$ provjerava je li $2^p-1$ Mersenneov prost broj
 <div class="compute"><script type="text/x-sage">
 @interact
 def is_prime_lucas_lehmer(p=('Unesite broj $p$',5)):
   s = Mod(4, 2^p - 1)
   for i in range(3, p+1): s = s^2 - 2
-  if s == 0 : print(' r $M_p$ je prost broj')
-  else: print( ' r $M_p$ nije prost broj')
+  if s == 0 : print 2^p-1,'je Mersenneov prost broj'
+  else: print 2^p-1,'nije Mersenneov prost broj'
   return ;
 </script>
 </div>
