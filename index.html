@@ -470,7 +470,7 @@ class: middle
 
 Neka je $ M_p = 2^p -1 $  Mersenneov broj za koji želimo testirati je li prosti broj, gdje je $ p $ neparni prosti broj.
 Definiramo niz $ ( s_i ) $ za sve $ i \ge 0 $ sa:
-$$ s_0 = 4 , s_n \equiv s_n^2 - 2 \pmod {M_p} $$
+$$ s_0 = 4 , s_n \equiv s\_{n-1}^2 - 2 \pmod {M_p} $$
 
 Funkcija koja za dani $p$ provjerava je li $2^p-1$ Mersenneov prost broj
 <div class="compute"><script type="text/x-sage">
