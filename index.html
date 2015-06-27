@@ -197,7 +197,7 @@ class: middle
 
 <b>Dokaz</b>
 Neka je $n$ prirodan broj. Ako je $n$ prost broj, tada je djeljiv sa samim sobom i tvrdnja slijedi.
-Ako je $n$ složen broj, tada pmeđu njegovim djeliteljima postoji najmanji djelitelj, označimo ga sa $p$.
+Ako je $n$ složen broj, tada među njegovim djeliteljima postoji najmanji djelitelj, označimo ga sa $p$.
 Kada bi $p$ bio složen broj, tada bi njegov djelitelj bio jedan od faktora broja $n$ i to bi bio djelitelj koji je manji od njegovog najmanjeg djelitelja $p$, što je kontradikcija.
 Stoga je $p$ prosti broj.
 
@@ -212,8 +212,8 @@ class: middle
 <i>Svaki složen broj možemo napisati kao produkt prostih brojeva.</i>
 
 <b>Dokaz</b>
-Neka je $p_1$ najmanji prosti djelitelj složenog broja $n$. Ako označimo $q_1=n | p_1$, tada imamo $n=p_1 q_1$.
-Ako je $q_1$ složen broj, tada postoji njegov najmanji prosti djelitelj $p_2$ i vrijedi $n=p_1 p_2 q_2$, gdje je $q_2=q_1 | p_2$.
+Neka je $p_1$ najmanji prosti djelitelj složenog broja $n$. Ako označimo $ q_1 = p_1 | n $, tada imamo $n=p_1 q_1$.
+Ako je $q_1$ složen broj, tada postoji njegov najmanji prosti djelitelj $p_2$ i vrijedi $n=p_1 p_2 q_2$, gdje je $q_2 = p_2 | q_1 $.
 Ovaj postupak provodimo dok ne dođemo do oblika $n=p_1 p_2 \cdots p_m$; naime pošto je $n>q_1>q_2> \dots$, u jednom trenutku ćemo doći do $q_k$ koji je prosti broj.
 
 ---
@@ -306,18 +306,18 @@ Teorem o prostim brojevima objašnjava asimptotsko distribuciju prostih brojeva,
 On formalizira intuitivnu predođbu o tome da su prosti brojevi sve rijeđi kada postaju veći.
 
 Tvrdnja teorema je da se funkcija $\pi(x)$ može aproksimirati na sljedeći način:
-$\pi (x) \approx \frac{x}{\ln x} $
+$$\pi (x) \approx \frac{x}{\ln x} $$
 odnosno
-$\lim_{x \to \infty} \frac{\pi (x) }{\frac{x}{\ln x}} = 1$
+$$\lim_{x \to \infty} \frac{\pi (x) }{\frac{x}{\ln x}} = 1$$
 
 ---
 
-#Ilustracija i posljedice Prime Number Theorem-a
+#Ilustracija i posljedice Prime Number Theorem
 
 <div class="compute"><script type="text/x-sage">
 @interact
 def _(N=(100,(2..2000))):
-    html("<font color='red'>$\pi(x)$</font> and <font color='blue'>$x/(\log(x)-1)$</font> for $x < %s$"%N)
+    html("<font color='red'>$\pi(x)$</font> i <font color='blue'>$x/(\log(x)-1)$</font> za $x < %s$"%N)
     show(plot(prime_pi, 0, N, rgbcolor='red') + plot(x/(log(x)-1), 5, N, rgbcolor='blue'))
 </script>
 </div>
@@ -436,12 +436,12 @@ Ako je $x_0$ jedno rješenje, onda su sva rješenja sustava dana sa $x\equiv x_0
 # Primjeri za Kineski teorem o ostacima
 
 <div class="compute"><script type="text/x-sage">
-print CRT([2,3,4],[5,7,11]), '(mod ',5*7*11,')'
+print CRT([2,3,4],[5,7,11]), '(mod',5*7*11,')'
 </script>
 </div>
 
 <div class="compute"><script type="text/x-sage">
-print CRT([5,7,3],[7,11,13]), '(mod ',7*11*13,')'
+print CRT([5,7,3],[7,11,13]), '(mod',7*11*13,')'
 </script>
 </div>
 
@@ -457,7 +457,7 @@ class: middle
 #Mersenneovi brojevi
 
 <b>Mersenneovi brojevi</b> su brojevi oblika $M_n=2^n -1$.
-Ako je $n$ složen broj, tada je i $M_n$ složen broj.
+Ako je $n$ složen broj, tada je i $M_n$ složen broj. <br>
 <b>Mersenneovi prosti brojevi</b> su prosti brojevi oblika $M_n=2^n -1$, ali je dovoljno gledati brojeve oblika $M_p=2^p-1$, gdje je $p$ prosti broj.
 
 Do sada je poznato samo 48 Mersenneovih brojeva, a najveći je <b>$2^{57,885,161}-1$</b>, što je i najveći poznati prosti broj.
@@ -471,7 +471,8 @@ class: middle
 
 Neka je $ M_p = 2^p -1 $  Mersenneov broj za koji želimo testirati je li prosti broj, gdje je $ p $ neparni prosti broj.
 Definiramo niz $ \\{ s(i) \\} $ za sve $ i \ge 0 $ sa:
-$$ s(0) = 4 , s(n) \equiv s(n-1)^2 - 2 \pmod {M_p} , n \ge 1 $$
+$$ s(0) = 4 $$
+$$ s(n) \equiv s(n-1)^2 - 2 \pmod {M_p} , n \ge 1 $$
 Prvih nekoliko članova niza su: $4, 14, 194, 37634, 1416317954, \dots $ <br>
 $M_p$ je prost broj ako i samo ako $s(p-1) \equiv 0 \pmod {M_p} $
 
